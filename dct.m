@@ -22,6 +22,7 @@ gray_img = rgb2gray(source_image);
 rows = floor(rows/8)*8;
 cols = floor(cols/8)*8;
 gray_img = gray_img(1:rows ,1:cols) ;
+imwrite(gray_img, "images/gray_image.jpg", 'jpg');
 
 % show resized gray image
 % figure('name','resized gray image')
@@ -108,7 +109,7 @@ for index_coef = 1:quanti_coef_length
     title( "coef " +string(quanti_coef(index_coef))+ ...
         " rmse: " + string(quanti_rmse) + ...
         " norm: "+ string(fro_norm));
-%     imwrite(recovered_img(:, :, index_coef), "images/quanti_coef_ " +string(quanti_coef(index_coef))+".png");
+    imwrite(recovered_img(:, :, index_coef), "images/quanti_coef_ " +string(quanti_coef(index_coef))+".jpg", 'jpg');
 end
 
 % Dircetly cope with DCT coefficients as below
@@ -151,7 +152,7 @@ for index_coef = 1:dct_range_length
     title( "range: " +string(dct_range(index_coef))+"x"+string(dct_range(index_coef)) + ...
         " rmse: " + string(dct_rmse) + ...
         " norm: " + string(fro_norm));
-%     imwrite(dct_recoverd_img(:, :, index_coef), "images/dct_range_ " +string(dct_range(index_coef))+".png");
+    imwrite(dct_recoverd_img(:, :, index_coef), "images/dct_range_ " +string(dct_range(index_coef))+".jpg", 'jpg');
 end
 
 
